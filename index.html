@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Surprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .float { animation: float 3s ease-in-out infinite; }
+    .btn-next {
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    .btn-next:hover {
+      transform: scale(1.05);
+      background-color: #ec4899;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-pink-200 via-pink-100 to-pink-300 relative overflow-y-auto">
+
+ <!-- Floating emojis background -->
+<div class="absolute inset-0 pointer-events-none z-0">
+  <!-- Atas kiri -->
+  <div class="float text-pink-400 text-5xl absolute top-8 left-8">💖</div>
+  <!-- Atas kanan -->
+  <div class="float text-pink-500 text-5xl absolute top-12 right-8">🌸</div>
+  <!-- Bawah kiri -->
+  <div class="float text-pink-400 text-5xl absolute bottom-12 left-8">🍒</div>
+  <!-- Bawah kanan -->
+  <div class="float text-pink-500 text-5xl absolute bottom-16 right-8">🎀</div>
+</div>
+
+  <!-- LOGIN SECTION -->
+  <div id="login" class="min-h-screen flex flex-col items-center justify-center text-center px-4 z-10">
+    <h1 class="text-2xl md:text-3xl text-pink-700 mb-4">Enter Your Name 💖</h1>
+    <input id="nameInput" type="text" class="px-4 py-2 rounded border w-full max-w-xs" placeholder="TYPE IN ALL CAPS">
+    <button onclick="checkName()" class="bg-pink-500 text-white px-6 py-2 rounded-full mt-4 w-full max-w-xs">Login</button>
+  </div>
+
+  <!-- MESSAGE SECTION -->
+  <div id="message" class="hidden min-h-screen flex flex-col items-center justify-center text-center px-6 z-10">
+    <h1 class="text-3xl md:text-4xl font-bold text-pink-700 mb-6">Happy Valentine’s Day, Princess</h1>
+    <p class="text-lg md:text-xl text-pink-800 mb-6">
+      You’re my plug for happiness, my hype for bad days,<br>
+      and the reason my playlist bangs.<br>
+      Let’s keep being extra together, fr fr 💖
+    </p>
+    <div class="flex space-x-4">
+      <button onclick="showImpression()" class="btn-next bg-pink-500 text-white px-6 py-2 rounded-full">Next</button>
+      <button onclick="backToLogin()" class="btn-next bg-gray-400 text-white px-6 py-2 rounded-full">Back</button>
+    </div>
+  </div>
+
+  <!-- FIRST IMPRESSION SECTION -->
+  <div id="impression" class="hidden min-h-screen flex flex-col items-center justify-start px-6 py-12 z-10 max-w-2xl mx-auto">
+    <h2 class="text-xl md:text-2xl text-pink-600 mb-4">My First Impression 🌸</h2>
+    <p class="text-base md:text-lg text-pink-800 mb-6 text-justify">I’ve always loved how easy it is to talk to you. Ever since our chats on DC and WA, it felt so natural—like I could just be myself, joke around, and share random thoughts without overthinking. Honestly, I didn’t realize how much I was looking forward to meeting you in person… until that day.</p>
+    <p class="text-base md:text-lg text-pink-800 mb-6 text-justify">Then came the meet-up at the cafe in Depok. Seeing you there, in real life, just hit differently. You looked so cute, lively, and even more amazing than I imagined. The way you smiled, your little gestures, the way you laughed—it all made me feel like I’d known you way longer than just online. That moment made me realize how special you really are.</p>
+    <img src="img/first-impression.jpg" class="rounded-lg shadow-lg w-full max-w-md mx-auto mb-6">
+    <p class="text-base md:text-lg text-pink-800 mb-6 text-justify">After the event, when we walked home together, you leaned on my shoulder because you weren’t feeling well. I won’t lie—I was so happy, but also protective, wanting to hug you and make you feel better. Even though I knew it wasn’t the right moment, just having you close like that… it felt perfect. It was simple, yet so meaningful.</p>
+    <p class="text-base md:text-lg text-pink-800 mb-6 text-justify">Honestly, that day wasn’t just about seeing you in person. It was about all the small moments—the laughs, the talks, the comfort of being around you. Every little thing added up to one clear feeling: being with you just feels right, and I can’t wait to see where this connection takes us.</p>
+    <div class="flex space-x-4">
+      <button onclick="showHope()" class="btn-next bg-pink-500 text-white px-6 py-2 rounded-full">Next</button>
+      <button onclick="backToMessage()" class="btn-next bg-gray-400 text-white px-6 py-2 rounded-full">Back</button>
+    </div>
+  </div>
+
+  <!-- HOPE SECTION -->
+  <div id="hope" class="hidden min-h-screen flex flex-col items-center justify-start px-6 py-12 z-10 max-w-2xl mx-auto">
+    <h2 class="text-xl md:text-2xl text-pink-600 mb-4">My Hope for Us 💭</h2>
+    <p class="text-base md:text-lg text-pink-800 mb-6 text-justify">I hope that our journey together keeps growing, step by step, stronger and closer every day. I hope we keep learning from each other, laughing together, and supporting each other through every little thing life throws our way. I really want us to build something lasting, a bond that feels safe, fun, and full of love.</p>
+    <p class="text-base md:text-lg text-pink-800 mb-6 text-justify">One day, I hope we can create a beautiful family together—laughing over breakfast, making small memories, and raising little kids who are as cute, curious, and lively as we are. I hope our home is always filled with warmth, joy, and a lot of silly moments that make life feel brighter.</p>
+    <p class="text-base md:text-lg text-pink-800 mb-6 text-justify">Most of all, I hope we never lose the spark we have now—the comfort, the excitement, the little everyday things that make being with you feel so right. I want us to keep dreaming together, growing together, and always reminding each other how much we care. Because honestly… I can’t wait to see what our future holds, hand in hand, heart to heart.</p>
+    <div class="flex space-x-4">
+      <button onclick="showMemories()" class="btn-next bg-pink-500 text-white px-6 py-2 rounded-full">Next</button>
+      <button onclick="backToImpression()" class="btn-next bg-gray-400 text-white px-6 py-2 rounded-full">Back</button>
+    </div>
+  </div>
+
+  <!-- MEMORIES SECTION -->
+  <div id="memories" class="hidden relative min-h-screen flex flex-col items-center justify-start text-center px-6 py-12 z-10">
+    <!-- Intro overlay -->
+    <div id="memoriesIntro" class="absolute inset-0 flex items-center justify-center bg-white/60 backdrop-blur-md z-20">
+      <div class="text-center">
+        <h2 class="text-2xl md:text-3xl text-pink-600 mb-4">Welcome to Our Memories 💖</h2>
+        <button onclick="closeIntro()" class="btn-next bg-pink-500 text-white px-6 py-2 rounded-full">Enter</button>
+      </div>
+    </div>
+
+        <!-- Timeline accordion -->
+    <h2 class="text-xl md:text-2xl text-pink-600 mb-6">Our Timeline 📅</h2>
+    <div class="w-full max-w-md space-y-4">
+      <!-- Tahun 2024 -->
+      <div>
+        <button onclick="toggleYear(2024)" class="w-full bg-pink-500 text-white px-4 py-2 rounded">2024</button>
+        <div id="year2024" class="hidden mt-2">
+          <img src="img/memory2024.jpg" class="rounded-lg shadow-lg w-full mb-2">
+          <p>Forever until the end of the day 💖</p>
+        </div>
+      </div>
+      <!-- Tahun 2025 -->
+      <div>
+        <button onclick="toggleYear(2025)" class="w-full bg-pink-500 text-white px-4 py-2 rounded">2025</button>
+        <div id="year2025" class="hidden mt-2">
+          <img src="img/memory2025.jpg" class="rounded-lg shadow-lg w-full mb-2">
+          <p>Forever until the end of the day 💖</p>
+        </div>
+      </div>
+      <!-- Tahun 2026 -->
+      <div>
+        <button onclick="toggleYear(2026)" class="w-full bg-pink-500 text-white px-4 py-2 rounded">2026</button>
+        <div id="year2026" class="hidden mt-2">
+          <img src="img/memory2026.jpg" class="rounded-lg shadow-lg w-full mb-2">
+          <p>Forever until the end of the day 💖</p>
+        </div>
+      </div>
+      <!-- Tahun 2027 -->
+      <div>
+        <button onclick="toggleYear(2027)" class="w-full bg-pink-500 text-white px-4 py-2 rounded">2027</button>
+        <div id="year2027" class="hidden mt-2">
+          <p class="mb-2">Soon to be...</p>
+          <p>Forever until the end of the day 💖</p>
+        </div>
+      </div>
+      <!-- Tahun 2028 -->
+      <div>
+        <button onclick="toggleYear(2028)" class="w-full bg-pink-500 text-white px-4 py-2 rounded">2028</button>
+        <div id="year2028" class="hidden mt-2">
+          <p class="mb-2">Soon to be...</p>
+          <p>Forever until the end of the day 💖</p>
+        </div>
+      </div>
+      <!-- Tahun 2029 -->
+      <div>
+        <button onclick="toggleYear(2029)" class="w-full bg-pink-500 text-white px-4 py-2 rounded">2029</button>
+        <div id="year2029" class="hidden mt-2">
+          <p class="mb-2">Soon to be...</p>
+          <p>Forever until the end of the day 💖</p>
+        </div>
+      </div>
+      <!-- Tahun 2030 -->
+      <div>
+        <button onclick="toggleYear(2030)" class="w-full bg-pink-500 text-white px-4 py-2 rounded">2030</button>
+        <div id="year2030" class="hidden mt-2">
+          <p class="mb-2">Soon to be...</p>
+          <p>Forever until the end of the day 💖</p>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="backToHope()" class="btn-next bg-gray-400 text-white px-6 py-2 rounded-full mt-6">Back</button>
+  </div>
+
+  <script>
+    function checkName() {
+      const name = document.getElementById('nameInput').value;
+      const correctName = "KHAIRUNISSA DHIA YASYKUR TRISNAWIJAYA";
+      if(name === correctName) {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('message').classList.remove('hidden');
+      } else {
+        alert("Oops 💕 Only for my special one!");
+      }
+    }
+
+    function showImpression() {
+      document.getElementById('message').classList.add('hidden');
+      document.getElementById('impression').classList.remove('hidden');
+    }
+
+    function showHope() {
+      document.getElementById('impression').classList.add('hidden');
+      document.getElementById('hope').classList.remove('hidden');
+    }
+
+    function showMemories() {
+      document.getElementById('hope').classList.add('hidden');
+      document.getElementById('memories').classList.remove('hidden');
+    }
+
+    function closeIntro() {
+      document.getElementById('memoriesIntro').classList.add('hidden');
+      // default buka tahun 2024–2026
+      document.getElementById('year2024').classList.remove('hidden');
+      document.getElementById('year2025').classList.remove('hidden');
+      document.getElementById('year2026').classList.remove('hidden');
+    }
+
+    function toggleYear(year) {
+      const section = document.getElementById('year' + year);
+      section.classList.toggle('hidden'); // toggle independen
+    }
+
+    // Back buttons
+    function backToLogin() {
+      document.getElementById('message').classList.add('hidden');
+      document.getElementById('login').classList.remove('hidden');
+    }
+    function backToMessage() {
+      document.getElementById('impression').classList.add('hidden');
+      document.getElementById('message').classList.remove('hidden');
+    }
+    function backToImpression() {
+      document.getElementById('hope').classList.add('hidden');
+      document.getElementById('impression').classList.remove('hidden');
+    }
+    function backToHope() {
+      document.getElementById('memories').classList.add('hidden');
+      document.getElementById('hope').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
